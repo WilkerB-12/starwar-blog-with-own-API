@@ -23,7 +23,7 @@ export const Navbar = ({ item, resource }) => {
 							Favorites <span class="badge bg-secondary">{store.favorites.length}</span>
 						</button>
 						<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuClickableInside">
-							{store.favorites.map((favorite, i) => {
+							{store.favorites.length == 0 ? <li className="text-center">(empty)</li> : store.favorites.map((favorite, i) => {
 								return (<><li key={i}>
 									<div className="d-flex align-items-center px-1">
 										<button className="dropdown-item" type="button" onClick={(e) => {
