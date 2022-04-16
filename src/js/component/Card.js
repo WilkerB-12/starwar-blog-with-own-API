@@ -18,12 +18,12 @@ export const Card = ({ item, resource }) => {
         <div className="d-flex justify-content-between">
           <button className="btn btn-outline-primary"
             onClick={(e) => {
-              history.push(`/${resource}/${item.uid}`)
+              history.push(`/${resource}/${item.id}`)
             }}
           >Details</button>
           <button className="btn btn-outline-warning"
             onClick={(e) => {
-              resource == "characters" ? actions.addFavorites(item.uid, "people") : actions.addFavorites(item.uid, resource)
+              actions.addFavorites(item.id, resource)
             }}
           ><i className="fas fa-heart"></i>
           </button>

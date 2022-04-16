@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vehicles: [],
 			single: [],
 			favorites: [],
-			baseUrl: "https://www.swapi.tech/api"
+			baseUrl: "http://localhost:5000"
 		},
 		actions: {
 			getItems: async (resource) => {
@@ -15,17 +15,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				)
 				const body = await response.json()
 				if (!response.ok) return;
-				if (resource === "people") setStore({ characters: body.results });
-				if (resource === "planets") setStore({ planets: body.results });
-				if (resource === "vehicles") setStore({ vehicles: body.results });
+				if (resource === "characters") setStore({ characters: body });
+				if (resource === "planets") setStore({ planets: body });
+				if (resource === "vehicles") setStore({ vehicles: body });
 			},
 			getSingle: async (id, resource) => {
 				const response = await fetch(`${getStore().baseUrl}/${resource}/${id}`
 				);
 				const body = await response.json()
 				if (!response.ok) return;
-				setStore({ single: body.result.properties })
-				return body.result
+				setStore({ single: body })
+				return body
 			},
 
 			addFavorites: async (id, resource) => {

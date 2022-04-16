@@ -7,9 +7,6 @@ import { useParams } from "react-router-dom";
 export const Detail = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
-  if (params.resource == "characters") {
-    params.resource = "people"
-  }
 
   useEffect(() => {
     actions.getSingle(params.id, params.resource)
@@ -22,7 +19,7 @@ export const Detail = () => {
       <div className="card mb-3 border-0 border-bottom border-danger py-3">
         <div className="row g-0">
           <><div className="col-md-4">
-            <img src={params.resource == "people" ? `https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg` : `https://starwars-visualguide.com/assets/img/${params.resource}/${params.id}.jpg`} className="img-fluid rounded-start" alt="..." style={{ maxWidth: "300px" }} />
+            <img src={`https://starwars-visualguide.com/assets/img/${params.resource}/${store.single.uid}.jpg`} className="img-fluid rounded-start" alt="..." style={{ maxWidth: "300px" }} />
           </div>
             <div className="col-md-8">
               <div className="card-body justify-content-md-center">
@@ -43,19 +40,13 @@ export const Detail = () => {
       </div>
     </div>
       <div className="container">
-        <div class="row row-cols-6">
-          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "people" ? "Birth Year" : params.resource == "planets" ? "Climate" : "Cargo Capacity"}</p></div>
-          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "people" ? "Eye Color" : params.resource == "planets" ? "Diameter" : "Passengers"}</p></div>
-          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "people" ? "Gender" : params.resource == "planets" ? "Gravity" : "Model"}</p></div>
-          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "people" ? "Hair Color" : params.resource == "planets" ? "Orbital Period" : "Vehicle Class"}</p></div>
-          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "people" ? "Height" : params.resource == "planets" ? "Population" : "Max atmosphering Speed"}</p></div>
-          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "people" ? "Mass" : params.resource == "planets" ? "Terrain" : "Cost in credits"}</p></div>
-          <div class="col"><p className="text-center text-danger">{params.resource == "people" ? store.single.birth_year : params.resource == "planets" ? store.single.climate : store.single.cargo_capacity}</p></div>
-          <div class="col"><p className="text-center text-danger">{params.resource == "people" ? store.single.eye_color : params.resource == "planets" ? store.single.diameter : store.single.passengers}</p></div>
-          <div class="col"><p className="text-center text-danger">{params.resource == "people" ? store.single.gender : params.resource == "planets" ? store.single.gravity : store.single.model}</p></div>
-          <div class="col"><p className="text-center text-danger">{params.resource == "people" ? store.single.hair_color : params.resource == "planets" ? store.single.orbital_period : store.single.vehicle_class}</p></div>
-          <div class="col"><p className="text-center text-danger">{params.resource == "people" ? store.single.height : params.resource == "planets" ? store.single.population : store.single.max_atmosphering_speed}</p></div>
-          <div class="col"><p className="text-center text-danger">{params.resource == "people" ? store.single.mass : params.resource == "planets" ? store.single.terrain : store.single.cost_in_credits}</p></div>
+        <div class="row row-cols-3">
+          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "characters" ? "Birth Year" : params.resource == "planets" ? "Diameter" : "Manufacturer"}</p></div>
+          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "characters" ? "Eye Color" : params.resource == "planets" ? "Orbital Period" : "Passengers"}</p></div>
+          <div class="col"><p className="text-center fw-bold text-danger">{params.resource == "characters" ? "Height" : params.resource == "planets" ? "Rotation Period" : "Length"}</p></div>
+          <div class="col"><p className="text-center text-danger">{params.resource == "characters" ? store.single.birth_year : params.resource == "planets" ? store.single.diameter : store.single.manufacturer}</p></div>
+          <div class="col"><p className="text-center text-danger">{params.resource == "characters" ? store.single.eye_color : params.resource == "planets" ? store.single.orbital_period : store.single.passengers}</p></div>
+          <div class="col"><p className="text-center text-danger">{params.resource == "characters" ? store.single.heigth : params.resource == "planets" ? store.single.rotation_period : store.single.length}</p></div>
         </div>
       </div>
     </>

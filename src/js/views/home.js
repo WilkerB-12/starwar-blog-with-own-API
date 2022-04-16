@@ -16,7 +16,7 @@ export const Home = () => {
 			</div>
 			<div className="d-flex flex-row overflow-auto justify-content-start">
 				{store.characters.map((character, i) => {
-					return <Card key={character.uid} item={character} resource={"characters"} />
+					return <Card key={character.id} item={character} resource={"characters"} />
 				})}
 			</div>
 			<div className="text-start title mt-5">
@@ -24,7 +24,7 @@ export const Home = () => {
 			</div>
 			<div className="d-flex flex-row overflow-auto justify-content-start">
 				{store.planets.map((planet, i) => {
-					return <Card key={planet.uid} item={planet} resource={"planets"} />
+					return <Card key={planet.id} item={planet} resource={"planets"} />
 				})}
 			</div>
 			<div className="text-start title mt-5">
@@ -32,7 +32,7 @@ export const Home = () => {
 			</div>
 			<div className="d-flex flex-row overflow-auto justify-content-start">
 				{store.vehicles.map((vehicle, i) => {
-					return <Card key={vehicle.uid} item={vehicle} resource={"vehicles"} />
+					return <Card key={vehicle.id} item={vehicle} resource={"vehicles"} />
 				})}
 			</div>
 		</div>

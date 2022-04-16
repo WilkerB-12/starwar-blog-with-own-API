@@ -27,8 +27,8 @@ export const Navbar = ({ item, resource }) => {
 								return (<><li key={i}>
 									<div className="d-flex align-items-center px-1">
 										<button className="dropdown-item" type="button" onClick={(e) => {
-											(favorite.description == "A planet." ? history.push(`/planets/${favorite.uid}`) : favorite.description == "A vehicle" ? history.push(`/vehicles/${favorite.uid}`) : history.push(`/people/${favorite.uid}`))
-										}}>{favorite.properties.name}
+											(favorite.description == "A planet." ? history.push(`/planets/${favorite.id}`) : favorite.description == "A vehicle" ? history.push(`/vehicles/${favorite.id}`) : history.push(`/characters/${favorite.id}`))
+										}}>{favorite.name}
 										</button>
 										<span
 											className="fas fa-solid fa-trash close"
